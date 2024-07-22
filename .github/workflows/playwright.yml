@@ -60,7 +60,7 @@ jobs:
         runs-on: ubuntu-latest
         concurrency:
             group: hello
-        needs: fifth-test
+        needs: fourth-test
         steps:
             - name: Run another test5
               run: echo "Testing hello world"
