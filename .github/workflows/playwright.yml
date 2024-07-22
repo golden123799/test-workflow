@@ -35,8 +35,8 @@ jobs:
             group: hello
             cancel-in-progress: false
         steps:
-            - name: Run another test
-              run: echo "Testing hello world"
+            - name: Run another test2
+              run: echo "Testing hello world1"
 
     third-test:
         runs-on: ubuntu-latest
@@ -44,7 +44,7 @@ jobs:
             group: hello
             cancel-in-progress: false
         steps:
-            - name: Run another test
+            - name: Run another test3
               run: echo "Testing hello world"
 
     fourth-test:
@@ -53,7 +53,7 @@ jobs:
             group: hello
             cancel-in-progress: false
         steps:
-            - name: Run another test
+            - name: Run another test4
               run: echo "Testing hello world"
 
     fifth-test:
@@ -62,7 +62,7 @@ jobs:
             group: hello
             cancel-in-progress: false
         steps:
-            - name: Run another test
+            - name: Run another test5
               run: echo "Testing hello world"
 
     deploy:
