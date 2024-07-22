@@ -58,9 +58,9 @@ jobs:
 
     fifth-test:
         runs-on: ubuntu-latest
-        cancel-in-progress: false
         concurrency:
             group: hello
+            cancel-in-progress: false
         steps:
             - name: Run another test
               run: echo "Testing hello world"
