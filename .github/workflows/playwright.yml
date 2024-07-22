@@ -8,9 +8,6 @@ jobs:
     test:
         timeout-minutes: 60
         runs-on: ubuntu-latest
-        concurrency:
-            group: hello
-            cancel-in-progress: false
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
@@ -31,36 +28,24 @@ jobs:
 
     second-test:
         runs-on: ubuntu-latest
-        concurrency:
-            group: hello
-            cancel-in-progress: false
         steps:
             - name: Run another test
               run: echo "Testing hello world1"
 
     third-test:
         runs-on: ubuntu-latest
-        concurrency:
-            group: hello
-            cancel-in-progress: false
         steps:
             - name: Run another test
               run: echo "Testing hello world"
 
     fourth-test:
         runs-on: ubuntu-latest
-        concurrency:
-            group: hello
-            cancel-in-progress: false
         steps:
             - name: Run another test
               run: echo "Testing hello world"
 
     fifth-test:
         runs-on: ubuntu-latest
-        concurrency:
-            group: hello
-            cancel-in-progress: false
         steps:
             - name: Run another test
               run: echo "Testing hello world"
