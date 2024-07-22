@@ -10,6 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         concurrency:
             group: hello
+            cancel-in-progress: false
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
@@ -32,6 +33,7 @@ jobs:
         runs-on: ubuntu-latest
         concurrency:
             group: hello
+            cancel-in-progress: false
         steps:
             - name: Run another test
               run: echo "Testing hello world"
@@ -40,6 +42,7 @@ jobs:
         runs-on: ubuntu-latest
         concurrency:
             group: hello
+            cancel-in-progress: false
         steps:
             - name: Run another test
               run: echo "Testing hello world"
@@ -48,12 +51,14 @@ jobs:
         runs-on: ubuntu-latest
         concurrency:
             group: hello
+            cancel-in-progress: false
         steps:
             - name: Run another test
               run: echo "Testing hello world"
 
     fifth-test:
         runs-on: ubuntu-latest
+        cancel-in-progress: false
         concurrency:
             group: hello
         steps:
