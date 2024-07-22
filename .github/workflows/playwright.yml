@@ -25,3 +25,8 @@ jobs:
                   name: playwright-report
                   path: playwright-report/
                   retention-days: 30
+
+    second-test:
+        runs-on: ubuntu-latest
+            - name: Run another test
+              run: echo "Testing hello world"
