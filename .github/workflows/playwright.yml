@@ -28,6 +28,7 @@ jobs:
 
     second-test:
         runs-on: ubuntu-latest
+        needs: test
         steps:
             - name: Run another test
               run: echo "Testing hello world"
