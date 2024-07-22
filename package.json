@@ -1,6 +1,7 @@
 {
 	"name": "my-app",
 	"version": "0.0.1",
+	"packageManager": "pnpm@9.6.0",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
