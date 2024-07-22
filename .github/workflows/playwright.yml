@@ -32,3 +32,16 @@ jobs:
         steps:
             - name: Run another test
               run: echo "Testing hello world"
+
+    third-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run another test
+              run: echo "Testing hello world"
+
+    fourth-test:
+        runs-on: ubuntu-latest
+        needs: third-test
+        steps:
+            - name: Run another test
+              run: echo "Testing hello world"
