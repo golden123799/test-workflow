@@ -33,7 +33,7 @@ jobs:
         runs-on: ubuntu-latest
         concurrency:
             group: hello
-            cancel-in-progress: false
+        needs: test
         steps:
             - name: Run another test2
               run: echo "Testing hello world1"
@@ -42,7 +42,7 @@ jobs:
         runs-on: ubuntu-latest
         concurrency:
             group: hello
-            cancel-in-progress: false
+        needs: second-test
         steps:
             - name: Run another test3
               run: echo "Testing hello world"
@@ -51,7 +51,7 @@ jobs:
         runs-on: ubuntu-latest
         concurrency:
             group: hello
-            cancel-in-progress: false
+        needs: third-test
         steps:
             - name: Run another test4
               run: echo "Testing hello world"
@@ -60,7 +60,7 @@ jobs:
         runs-on: ubuntu-latest
         concurrency:
             group: hello
-            cancel-in-progress: false
+        needs: fifth-test
         steps:
             - name: Run another test5
               run: echo "Testing hello world"
