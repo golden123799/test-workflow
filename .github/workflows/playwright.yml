@@ -33,36 +33,36 @@ jobs:
         runs-on: ubuntu-latest
         concurrency:
             group: hello
-        needs: test
+            cancel-in-progress: false
         steps:
-            - name: Run another test2
+            - name: Run another test
               run: echo "Testing hello world1"
 
     third-test:
         runs-on: ubuntu-latest
         concurrency:
             group: hello
-        needs: second-test
+            cancel-in-progress: false
         steps:
-            - name: Run another test3
+            - name: Run another test
               run: echo "Testing hello world"
 
     fourth-test:
         runs-on: ubuntu-latest
         concurrency:
             group: hello
-        needs: third-test
+            cancel-in-progress: false
         steps:
-            - name: Run another test4
+            - name: Run another test
               run: echo "Testing hello world"
 
     fifth-test:
         runs-on: ubuntu-latest
         concurrency:
             group: hello
-        needs: fourth-test
+            cancel-in-progress: false
         steps:
-            - name: Run another test5
+            - name: Run another test
               run: echo "Testing hello world"
 
     deploy:
