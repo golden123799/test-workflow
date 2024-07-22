@@ -45,3 +45,10 @@ jobs:
         steps:
             - name: Run another test
               run: echo "Testing hello world"
+
+    fifth-test:
+        runs-on: ubuntu-latest
+        needs: [second-test, third-test]
+        steps:
+            - name: Run another test
+              run: echo "Testing hello world"
