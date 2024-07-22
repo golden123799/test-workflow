@@ -55,6 +55,6 @@ jobs:
 
     deploy:
         needs: [test, second-test, third-test, fourth-test, fifth-test]
-        uses: ./.github/workflows/production.yml
+        uses: .github/workflows/production.yml
         with:
             run_deployment: true
