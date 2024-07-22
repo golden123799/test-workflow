@@ -58,7 +58,8 @@ jobs:
               run: echo "Testing hello world"
 
     deploy:
-        needs: [test, second-test, third-test, fourth-test, fifth-test]
+        needs:
+            [test, sub-test, second-test, third-test, fourth-test, fifth-test]
         secrets: inherit
         uses: ./.github/workflows/production.yml
         with:
