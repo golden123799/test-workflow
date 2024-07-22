@@ -9,7 +9,7 @@ on:
             - completed
 jobs:
     Deploy-Production:
-        if: ${{ github.event.workflow_run.conclusion == 'success' && github.ref == 'refs/heads/master' }}
+        if: ${{ github.event.workflow_run.conclusion == 'success' && github.ref == 'refs/heads/main' }}
         runs-on: ubuntu-latest
 
         steps:
