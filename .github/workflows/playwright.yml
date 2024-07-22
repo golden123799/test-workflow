@@ -52,3 +52,9 @@ jobs:
         steps:
             - name: Run another test
               run: echo "Testing hello world"
+
+    deploy:
+        needs: [test, second-test, third-test, fourth-test, fifth-test]
+        uses: ./.github/workflows/production.yml
+        with:
+            run_deployment: true

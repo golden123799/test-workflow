@@ -1,34 +1,38 @@
-# name: Vercel Production Deployment
-# env:
-#     VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-#     VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-# on:
-#     workflow_run:
-#         workflows: ['Playwright Tests']
-#         types:
-#             - completed
-# jobs:
-#     Deploy-Production:
-#         if: ${{ github.event.workflow_run.conclusion == 'success' && github.ref == 'refs/heads/main' }}
-#         runs-on: ubuntu-latest
+name: Vercel Production Deployment
 
-#         steps:
-#             - uses: actions/checkout@v2
+env:
+    VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+    VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
-#             - name: Setup pnpm
-#               uses: pnpm/action-setup@v3
+on:
+    workflow_call:
+        inputs:
+            run_deployment:
+                required: true
+                type: boolean
 
-#             - name: Install Dependencies
-#               run: pnpm i
+jobs:
+    Deploy-Production:
+        if: ${{ inputs.run_deployment == true }}
+        runs-on: ubuntu-latest
 
-#             - name: Install Vercel CLI
-#               run: pnpm install --global vercel@latest
+        steps:
+            - uses: actions/checkout@v2
 
-#             - name: Pull Vercel Environment Information
-#               run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v3
 
-#             - name: Build Project Artifacts
-#               run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+            - name: Install Dependencies
+              run: pnpm i
 
-#             - name: Deploy Project Artifacts to Vercel
-#               run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+            - name: Install Vercel CLI
+              run: pnpm install --global vercel@latest
+
+            - name: Pull Vercel Environment Information
+              run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+            - name: Build Project Artifacts
+              run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+            - name: Deploy Project Artifacts to Vercel
+              run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
